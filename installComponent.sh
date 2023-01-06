@@ -1,6 +1,6 @@
-#!bin/bash
-
 # Téléchargement du fichier d'installation de Kubeflow
+
+cd ..
 
 git clone https://github.com/kubeflow/manifests.git
 
