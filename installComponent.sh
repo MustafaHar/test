@@ -101,7 +101,7 @@ kustomize build apps/training-operator/upstream/overlays/kubeflow | kubectl appl
 
 # Installation User Namespace
 
-kustomize build common/user-namespx²ace/base | kubectl apply -f -
+kustomize build common/user-namespace/base | kubectl apply -f -
 
 # Expose port LoadBalancer
 
