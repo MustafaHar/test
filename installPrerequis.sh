@@ -1,8 +1,4 @@
-# Installation AZ CLI
-cd ..
-
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
+#!bin/bash
 
 # Installation de kubectl
 
@@ -10,17 +6,35 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 
 curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 
-echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum –-check
 
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
-kubectl version --client
 
 
 # Installation de Kustomize v3.2.0
 
-wget https://github.com/kubernetes-sigs/kustomize/releases/download/v3.2.0/kustomize_3.2.0_linux_amd64
+# Installation de Kustomize v3.2.0
 
-curl --silent --location --remote-name "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.3/kustomize_kustomize.v3.2.3_linux_amd64" && chmod a+x kustomize_kustomize.v3.2.3_linux_amd64 && sudo mv kustomize_kustomize.v3.2.3_linux_amd64 /usr/local/bin/kustomize
+# wget https://github.com/kubernetes-sigs/kustomize/releases/download/v3.2.0/kustomize_3.2.0_linux_amd64
 
-cd test
+# curl --silent --location --remote-name "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.3/kustomize_kustomize.v3.2.3_linux_amd64" && chmod a+x kustomize_kustomize.v3.2.3_linux_amd64 && sudo mv kustomize_kustomize.v3.2.3_linux_amd64 /usr/local/bin/kustomize
+
+sudo snap install kustomize 
+
+# Installation d'IstioCTL
+
+curl -L https://istio.io/downloadIstio | sh -
+
+cd istio-1.17.1
+
+export PATH=$PWD/bin:$PATH
+
+cd 
+
+# Installation AZ CLI
+
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+sleep 3m
+
+echo "Installation des prérequis fini !"
